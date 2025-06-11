@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
+import { galleryItems as realGalleryItems } from '@/data/galleryData';
 
 // Gallery categories
 const categories = [
@@ -14,8 +15,8 @@ const categories = [
   { id: 'facial', name: 'Facial Treatments' },
 ];
 
-// Sample gallery data - replace with real images
-const galleryItems = [
+// Real gallery data using Svetlana's beautiful work
+const galleryItems = realGalleryItems.length > 0 ? realGalleryItems : [
   {
     id: 1,
     category: 'eyebrows',

@@ -8,6 +8,7 @@ import { ArrowRight, Star, MapPin, Phone, Clock, CheckCircle } from 'lucide-reac
 import HeroSlider from '@/components/HeroSlider';
 import TestimonialsCarousel from '@/components/TestimonialsCarousel';
 import BeforeAfterSlider from '@/components/BeforeAfterSlider';
+import InstagramFeed from '@/components/InstagramFeed';
 
 // Hero Section Component (replaced with HeroSlider)
 const HeroSection = () => {
@@ -323,8 +324,8 @@ const BeforeAfterShowcase = () => {
               Microblading Transformation
             </h3>
             <BeforeAfterSlider
-              beforeImage="/images/gallery/eyebrows-before-1.jpg"
-              afterImage="/images/gallery/eyebrows-after-1.jpg"
+              beforeImage="/images/instagram/beauty-work-4.jpg"
+              afterImage="/images/instagram/beauty-work-5.jpg"
               className="aspect-[4/5]"
             />
           </motion.div>
@@ -339,8 +340,8 @@ const BeforeAfterShowcase = () => {
               Lip Blush Enhancement
             </h3>
             <BeforeAfterSlider
-              beforeImage="/images/gallery/lips-before-1.jpg"
-              afterImage="/images/gallery/lips-after-1.jpg"
+              beforeImage="/images/instagram/beauty-work-6.jpg"
+              afterImage="/images/instagram/beauty-work-1.jpg"
               className="aspect-[4/5]"
             />
           </motion.div>
@@ -363,6 +364,46 @@ const BeforeAfterShowcase = () => {
   );
 };
 
+// Instagram Section Component
+const InstagramSection = () => {
+  return (
+    <section className="py-20 px-4 bg-gray-50">
+      <div className="container mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-4xl lg:text-5xl font-elegant text-charcoal-900 mb-6">
+            Follow Our <span className="text-gradient">Journey</span>
+          </h2>
+          <p className="text-xl text-charcoal-600 max-w-3xl mx-auto">
+            See our latest work, client transformations, and behind-the-scenes moments. 
+            Join our community of beauty enthusiasts!
+          </p>
+        </motion.div>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <InstagramFeed 
+            maxPosts={6}
+            gridCols={3}
+            showStats={true}
+            showCaption={false}
+            className="max-w-4xl mx-auto"
+          />
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
 // Main Homepage Component
 export default function HomePage() {
   return (
@@ -371,6 +412,7 @@ export default function HomePage() {
       <ServicesOverview />
       <BeforeAfterShowcase />
       <TestimonialsCarousel />
+      <InstagramSection />
       <ContactInfo />
     </main>
   );
